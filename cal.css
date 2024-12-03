@@ -3,59 +3,82 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: white;
+    background-color: #f4f4f9;
     margin: 0;
+    font-family: Arial, sans-serif;
 }
 
 .calculator {
-    width: 400px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    background-color: #103467;
+    width: 350px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    background-color:cadetblue;
     padding: 20px;
 }
 
 .display {
     width: 100%;
-    height: 60px;
-    background-color: #fff;
+    height: 70px;
+    background-color: white;
     color: black;
-    font-size: 2em;
+    font-size: 2.5em;
     text-align: right;
-    padding: 10px;
-    border: 1px solid black;
-    border-radius: 5px;
-    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 10px;
     box-sizing: border-box;
+    overflow-x: auto;
 }
 
 .buttons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
+    gap: 15px;
+    margin-top: 20px;
 }
 
 .button {
-    width: 100%;
     height: 60px;
-    font-size: 1.5em;
-    background-color: #eee;
+    font-size: 1.2em;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    background-color:burlywood ;
+    color: black;
 }
 
 .button:hover {
-    background-color: #ddd;
+    background-color:darksalmon;
 }
 
 .operator {
-    background-color: #f3ae25;
+    background-color: #f57f17;
     color: white;
 }
 
 .operator:hover {
-    background-color: #f57f17;
+    background-color: #e57300;
+}
+
+.function {
+    background-color: #d32f2f;
+    color: white;
+}
+
+.function:hover {
+    background-color: #b71c1c;
+}
+
+.equals {
+    background-color: #00796b;
+    grid-column: span 2;
+    color: white;
+}
+
+.equals:hover {
+    background-color: #005f56;
+}
+
+.button:active {
+    transform: scale(0.95);
 }
