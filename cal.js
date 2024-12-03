@@ -1,35 +1,63 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const display = document.getElementById('display');
-    const buttons = document.querySelectorAll('.button');
-  
-    buttons.forEach(button => {
+  const display = document.getElementById('display');
+  const buttons = document.querySelectorAll('.button');
+
+  let currentInput = '0';
+  let lastOperator = null;
+
+  const updateDisplay = (value) => {
+      display.textContent = value;
+  };
+
+  const handleClear = () => {
+      currentInput = '0';
+      lastOperator = null;
+      updateDisplay(currentInput);
+  };
+
+  const handleDelete = () => {
+      currentInput = currentInput.slice(0, -1) || '0';
+      updateDisplay(currentInput);
+  };
+
+  const handleInput = (value) => {
+      if (currentInput === '0' && value !== '.') {
+          currentInput = value;
+      } else {
+          currentInput += value;
+      }
+      updateDisplay(currentInput);
+  };
+
+  const handleOperator = (operator) => {
+      if (!/[+\-*/%]$/.test(currentInput)) {
+          currentInput += operator;
+      }
+      updateDisplay(currentInput);
+  };
+
+  const calculateResult = () => {
+      try {
+          const result = new Function('return ' + currentInput)();
+          currentInput = result.toString();
+          if (currentInput.length > 10) {
+              currentInput = Number(result).toExponential(6);
+          }
+          updateDisplay(currentInput);
+      } catch {
+          updateDisplay('Error');
+      }
+  };
+
+  buttons.forEach((button) => {
       button.addEventListener('click', () => {
-        const buttonContent = button.textContent;
-  
-        if (button.id === 'clear') {
-          display.textContent = '0';
-        } else if (button.id === 'delete') {
-          display.textContent = display.textContent.slice(0, -1) || '0';
-        } else if (button.id === 'equals') {
-          try {
-            const result = new Function('return ' + display.textContent)();
-            // Check if result length is greater than 10 (excluding negative sign)
-            if (result.toString().length > 10 && result.toString()[0] !== '-') {
-              display.textContent = result.toExponential(6); // Use toExponential with 6 decimal places
-            } else {
-              display.textContent = result;
-            }
-          } catch {
-            display.textContent = 'Error';
-          }
-        } else {
-          if (display.textContent === '0' && buttonContent !== '.' && buttonContent !== '%') {
-            display.textContent = buttonContent;
-          } else {
-            display.textContent += buttonContent;
-          }
-        }
+          const value = button.textContent;
+
+          if (button.id === 'clear') handleClear();
+          else if (button.id === 'delete') handleDelete();
+          else if (button.id === 'equals') calculateResult();
+          else if (button.classList.contains('operator')) handleOperator(value);
+          else handleInput(value);
       });
-    });
   });
-  
+});
