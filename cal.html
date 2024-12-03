@@ -3,39 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
+    <title>Professional Calculator</title>
     <link rel="stylesheet" href="cal.css">
 </head>
 <body>
-    <div class="calculator">
-        <div class="display" id="display">0</div>
+    <div class="calculator" aria-label="Calculator">
+        <div class="display" id="display" aria-label="Display">0</div>
         <div class="buttons">
-            <button class="button" id="clear">C</button>
-            <button class="button" id="delete">DEL</button>
-            <button class="button" id="percent">%</button>
-            <button class="button operator" id="divide">/</button>
+            <button class="button function" id="clear" aria-label="Clear">C</button>
+            <button class="button function" id="delete" aria-label="Delete">DEL</button>
+            <button class="button operator" id="percent" aria-label="Percentage">%</button>
+            <button class="button operator" id="divide" aria-label="Divide">/</button>
 
-            <button class="button" id="seven">7</button>
-            <button class="button" id="eight">8</button>
-            <button class="button" id="nine">9</button>
-            <button class="button operator" id="multiply">*</button>
+            <button class="button" id="seven" aria-label="Seven">7</button>
+            <button class="button" id="eight" aria-label="Eight">8</button>
+            <button class="button" id="nine" aria-label="Nine">9</button>
+            <button class="button operator" id="multiply" aria-label="Multiply">*</button>
 
-            <button class="button" id="four">4</button>
-            <button class="button" id="five">5</button>
-            <button class="button" id="six">6</button>
-            <button class="button operator" id="subtract">-</button>
+            <button class="button" id="four" aria-label="Four">4</button>
+            <button class="button" id="five" aria-label="Five">5</button>
+            <button class="button" id="six" aria-label="Six">6</button>
+            <button class="button operator" id="subtract" aria-label="Subtract">-</button>
 
-            <button class="button" id="one">1</button>
-            <button class="button" id="two">2</button>
-            <button class="button" id="three">3</button>
-            <button class="button operator" id="add">+</button>
+            <button class="button" id="one" aria-label="One">1</button>
+            <button class="button" id="two" aria-label="Two">2</button>
+            <button class="button" id="three" aria-label="Three">3</button>
+            <button class="button operator" id="add" aria-label="Add">+</button>
 
-            <button class="button" id="zero">0</button>
-            <button class="button" id="decimal">.</button>
-            <button class="button" id="equals">=</button>
+            <button class="button" id="zero" aria-label="Zero">0</button>
+            <button class="button" id="decimal" aria-label="Decimal">.</button>
+            <button class="button equals" id="equals" aria-label="Equals">=</button>
         </div>
     </div>
-
     <script src="cal.js"></script>
 </body>
 </html>
